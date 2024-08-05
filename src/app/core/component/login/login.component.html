@@ -1,0 +1,110 @@
+<app-nav></app-nav>
+<div class="login-container">
+  <mat-tab-group>
+    <mat-tab label="Sign In">
+      <form [formGroup]="loginForm" (ngSubmit)="senDataAuth()">
+        <div class="login-form ">
+          <mat-form-field appearance="fill" style="margin-top: 30px; ">
+            <mat-label>Usuario</mat-label>
+            <input type="username" matInput formControlName="username"  placeholder="Ex.20pat@example.com">
+
+            @if (loginForm.get('username')?.hasError('required')) {
+              <mat-error>
+                Usuario es <strong>required</strong>
+              </mat-error>
+            } 
+
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password"  required minlength="4">
+
+            @if (loginForm.get('password')?.hasError('required')) {
+              <mat-error>
+                Contrase&ntilde;a es <strong>required</strong>
+              </mat-error>
+            }
+            
+            @if (loginForm.get('password')?.hasError('minlength')) {
+              <mat-error>
+                Contrase&ntilde;a debe tener al menos 4 caracteres
+              </mat-error>
+            }
+
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+
+          <mat-checkbox>Remember Me!</mat-checkbox>
+
+          <button mat-raised-button color="primary" class="sign-in-button" >Sign In</button>
+          <button mat-stroked-button color="primary" class="google-button">Login with Google</button>
+        </div>
+      </form>
+    </mat-tab>
+
+    <!-- Secundary Tags -->
+    <!-- form [formGroup]="registerUser" (ngSubmit)="senDataUserRegister()"> -->
+      <mat-tab label="Sign Up">
+
+        <form [formGroup]="loginForm" (ngSubmit)="senDataUserRegister()">
+          <div class="login-form ">
+            <mat-form-field appearance="fill" style="margin-top: 30px; ">
+              <mat-label>Usuario</mat-label>
+              <input type="username" matInput formControlName="username"  placeholder="pepitoPerez">
+  
+              @if (loginForm.get('username')?.hasError('required')) {
+                <mat-error>
+                  Usuario es <strong>required</strong>
+                </mat-error>
+              } 
+              <mat-icon matSuffix>person</mat-icon>
+              
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" >
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email"  placeholder="Ex.20pat@example.com">
+  
+              @if (loginForm.get('email')?.hasError('required')) {
+                <mat-error>
+                  Email es <strong>required</strong>
+                </mat-error>
+              } 
+              <mat-icon matSuffix>mail</mat-icon>
+              
+            </mat-form-field>
+  
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input type="password" matInput formControlName="password" placeholder="MiC0ntr4sen4" required minlength="4">
+  
+              @if (loginForm.get('password')?.hasError('required')) {
+                <mat-error>
+                  Contrase&ntilde;a es <strong>required</strong>
+                </mat-error>
+              }
+              
+              @if (loginForm.get('password')?.hasError('minlength')) {
+                <mat-error>
+                  Contrase&ntilde;a debe tener al menos 4 caracteres
+                </mat-error>
+              }
+  
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+  
+            <button mat-raised-button color="primary" class="sign-in-button" >Register</button>
+            
+          </div>
+        </form>
+        <!-- Aquí puedes añadir el formulario de registro -->
+      </mat-tab>
+   <!--  </form> -->
+  </mat-tab-group>
+
+
+</div>
+
+

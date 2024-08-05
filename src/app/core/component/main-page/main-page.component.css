@@ -1,0 +1,56 @@
+/* Estilos para la barra de navegación superior */
+app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Ajusta según la altura de tu barra de navegación */
+    /* background-color: #efcb55; */ /* Color de fondo para la barra de navegación */
+    z-index: 10; /* Asegura que la barra de navegación esté por encima de otros elementos */
+  }
+
+
+  .main-container {
+    padding-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    padding: 1%;
+    height: 100%;
+    /* height: 100vh; */ /* Ajusta según tus necesidades */
+}
+
+  /* Estilos para la barra lateral */
+  app-sidebar {
+    margin-top: 8vh;
+    /* width: 250px; */
+    /* height: calc(100vh - 60px); */ /* Altura total menos la altura de la barra de navegación */
+    /* background-color: #343a40; */
+    /* color: white; */
+    /* position: fixed; */
+   /*  top: 60px; */ /* Para que la barra lateral comience debajo de la barra de navegación */
+  }
+
+  /* Estilos para el contenido principal */
+  .content {
+    flex-grow: 1;
+    margin-left: 250px; /* Para dejar espacio para la barra lateral */
+    height: calc(100vh - 60px); /* Altura total menos la altura de la barra de navegación */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Estilos específicos para el componente de dashboard */
+  .app-dashboard {
+    text-align: center;
+    /* Otros estilos que desees agregar */
+  }
+
+
+  .sidebar-style {
+    /* margin-top: 1%; */
+    /* margin-left: 1%; */
+    /* border-radius: 3%;
+    margin-bottom: 100%; */
+  }

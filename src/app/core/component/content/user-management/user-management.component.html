@@ -1,0 +1,41 @@
+<div class="user-management">
+    <h2>Gestión de Usuarios</h2>
+    
+    <div class="card">
+      
+      <h6>Lista de Usuarios Registrados</h6>
+      <p-table [value]="users" [tableStyle]="{'min-width': '60rem'}">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th pSortableColumn="code" style="width:20%">
+                    username <p-sortIcon field="code" />
+                  </th>
+                  <th pSortableColumn="name" style="width:20%">
+                    email <p-sortIcon field="name" />
+                  </th>
+                  <th pSortableColumn="category" style="width:20%">
+                    locked <p-sortIcon field="category" />
+                  </th>
+                  <th pSortableColumn="quantity" style="width:20%">
+                    disabled <p-sortIcon field="quantity" />
+                  </th>
+                  <th pSortableColumn="quantity" style="width:20%">
+                    roles <p-sortIcon field="quantity" />
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-users>
+              <tr>
+                  <td>{{ users.username }}</td>
+                  <td>{{ users.email }}</td>
+                  <td>{{ users.locked }}</td>
+                  <td>{{ users.disabled }}</td>
+                  <td>{{ users.roles }}</td>
+              </tr>
+          </ng-template>
+      </p-table>
+  </div>
+<!-- Gestion de Usuari -->
+
+</div>
+  
