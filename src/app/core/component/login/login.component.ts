@@ -69,8 +69,10 @@ export class LoginComponent {
     console.log('send data');
     console.log('this.loginForm.value',this.loginForm.value);
     console.log('this.loginForm.value.username',this.loginForm.value.username);
+    var username = this.loginForm.value.username;
+    var password = this.loginForm.value.password;
 
-    if(this.loginForm.valid){
+    if(username != '' && password != ''){
       console.log('--- get Service ---');
       this.authService.postLoginAuth(this.loginForm.value).subscribe({
 
