@@ -3,5 +3,9 @@
   <div class= "main-container">
     <app-sidebar class="sidebar-style"> </app-sidebar>
     <app-dashboard class="app-dashboard"></app-dashboard>
+
+    {{authService.gestionUser$ }}
+      <app-user-management  *ngIf="authService.gestionUser$  | async "  ></app-user-management>
+    
   </div>
 

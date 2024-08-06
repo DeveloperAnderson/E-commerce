@@ -83,6 +83,9 @@ export class LoginComponent {
           console.log('Status:', data.status);
           console.log('JWT:', data.jwt);
           
+          //Guardar el token en el localStorage  
+          localStorage.setItem('token', data.jwt);
+          
           this.toastr.success('Bienvenido ' + data.username);
           //rutas
           this.router.navigate(['main-page']);

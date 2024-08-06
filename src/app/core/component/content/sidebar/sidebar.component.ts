@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '
 import { Sidebar } from 'primeng/sidebar';
 import { ImportsModule } from './imports';
 import { AuthService } from '../../../services/auth/auth.service';
-import { Observable, Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,8 +18,12 @@ export class SidebarComponent implements OnInit{
 
   constructor(
     private renderer: Renderer2,
-    public authService: AuthService
-  ) {}
+    public authService: AuthService,
+    private router: Router
+  ) {
+    console.log('SidebarComponent');
+    this.closeGestionUser();
+  }
 
   ngOnInit(): void {
   }
@@ -32,4 +36,13 @@ export class SidebarComponent implements OnInit{
     this.authService.changeSidebarVisible();
   }
 
+  closeGestionUser()  {
+    this.authService.closeGestionUser();
+  }
+
+  GestionUser() {
+    console.log('GestionUser');
+    this.router.navigate(['main-page', 'gestionUsuarios']);
+    this.authService.openGestionUser();
+  }
 }

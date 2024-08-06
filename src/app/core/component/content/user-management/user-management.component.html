@@ -1,41 +1,95 @@
-<div class="user-management">
-    <h2>Gestión de Usuarios</h2>
-    
-    <div class="card">
-      
-      <h6>Lista de Usuarios Registrados</h6>
-      <p-table [value]="users" [tableStyle]="{'min-width': '60rem'}">
-          <ng-template pTemplate="header">
-              <tr>
-                  <th pSortableColumn="code" style="width:20%">
-                    username <p-sortIcon field="code" />
-                  </th>
-                  <th pSortableColumn="name" style="width:20%">
-                    email <p-sortIcon field="name" />
-                  </th>
-                  <th pSortableColumn="category" style="width:20%">
-                    locked <p-sortIcon field="category" />
-                  </th>
-                  <th pSortableColumn="quantity" style="width:20%">
-                    disabled <p-sortIcon field="quantity" />
-                  </th>
-                  <th pSortableColumn="quantity" style="width:20%">
-                    roles <p-sortIcon field="quantity" />
-                  </th>
-              </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-users>
-              <tr>
-                  <td>{{ users.username }}</td>
-                  <td>{{ users.email }}</td>
-                  <td>{{ users.locked }}</td>
-                  <td>{{ users.disabled }}</td>
-                  <td>{{ users.roles }}</td>
-              </tr>
-          </ng-template>
-      </p-table>
-  </div>
-<!-- Gestion de Usuari -->
 
+<h2 style="display: flex; align-items: center; justify-content: center; ">GESTI&Oacute;N DE USUARIOS</h2>
+
+<!-- Gestion de Usuarios Crear -->
+<div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+  <p-button icon="pi pi-user"  (onClick)="createUser()" [rounded]="true" label="Crear" severity="info" />
 </div>
+
+<div class="card">
+  <h6>Lista de Usuarios Registrados</h6>
+  <p-table [value]="users" [tableStyle]="{'min-width': '60rem'}">
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="code" style="width:20%">
+                username <p-sortIcon field="code" />
+              </th>
+              <th pSortableColumn="name" style="width:20%">
+                email <p-sortIcon field="name" />
+              </th>
+              <th pSortableColumn="category" style="width:20%">
+                locked <p-sortIcon field="category" />
+              </th>
+              <th pSortableColumn="quantity" style="width:20%">
+                disabled <p-sortIcon field="quantity" />
+              </th>
+              <th pSortableColumn="quantity" style="width:20%">
+                roles <p-sortIcon field="quantity" />
+              </th>
+              <th pSortableColumn="quantity" style="width:20%">
+                Acciones <p-sortIcon field="quantity" />
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-users>
+          <tr>
+              <td>{{ users.username }}</td>
+              <td>{{ users.email }}</td>
+              <td>{{ users.locked }}</td>
+              <td>{{ users.disabled }}</td>
+              <td>{{ users.roles }}</td>
+              <td>
+                <p-button  label="Editar" severity="success"   [outlined]="true" (onClick)="editar(users)"  />
+                <p-button  label="Eliminar" severity="info"  [outlined]="true" (onClick)="deleteUser(users)"/>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+<!-- Gestion de Usuarios -->
+
+  <p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+    <span class="p-text-secondary block mb-5">{{ isCreating ? 'Crear Usuario' : 'Editar Usuario' }}</span>
+    
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="username" class="font-semibold w-6rem">Username</label>
+      <input type="text" id="username" [(ngModel)]="selectedUser.username" name="username" class="form-control" required [disabled]="!isCreating" />
+    </div>
+    
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="email" class="font-semibold w-6rem">Email</label>
+      <input type="email" id="email" [(ngModel)]="selectedUser.email" name="email" class="form-control" required />
+    </div>
+    
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="locked" class="font-semibold w-6rem">Locked</label>
+      <input type="checkbox" id="locked" [(ngModel)]="selectedUser.locked" name="locked" class="form-check-input" />
+    </div>
+    
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="disabled" class="font-semibold w-6rem">Disabled</label>
+      <input type="checkbox" id="disabled" [(ngModel)]="selectedUser.disabled" name="disabled" class="form-check-input" />
+    </div>
+    
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="roles" class="font-semibold w-6rem">Roles</label>
+      <input type="text" id="roles" [(ngModel)]="selectedUser.roles" name="roles" class="form-control" placeholder="USER - ADMIN" />
+    </div>
+
+    @if (isCreating) {
+      <div class="flex align-items-center gap-3 mb-5" >
+        <label for="roles" class="font-semibold w-6rem">Contrasena</label>
+        <input type="text" id="roles" [(ngModel)]="selectedUser.password" name="roles" class="form-control" placeholder="Micontras4na" />
+      </div>
+    }
+
+    <div class="flex justify-content-end gap-2">
+      <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+      <p-button label="Save" (onClick)="saveUser()" />
+    </div>
+  </p-dialog>
+
+
+
+
   

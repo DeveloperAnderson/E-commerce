@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 
 
 
-import { error } from 'console';
+import { Console, error } from 'console';
 import { IRegisterUser } from './IRegisterUser';
 
 @Injectable({
@@ -17,6 +17,9 @@ export class AuthService {
 
   private sidebarVisible_: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public sidebarVisible$ = this.sidebarVisible_.asObservable();
+
+  private gestionUser_: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public gestionUser$ = this.gestionUser_.asObservable();
 
   constructor(private http: HttpClient, ) { }
 
@@ -62,5 +65,21 @@ export class AuthService {
     this.sidebarVisible_.next(false);
   }
 
+
+  // Gestion de usuarios
+  changeGestionUser(): void {
+    console.log('changeGestionUser');
+    this.gestionUser_.next(!this.gestionUser_.value);
+  }
+
+  openGestionUser(): void {
+    this.gestionUser_.next(true);
+    console.log('openGestionUser', this.gestionUser_.value);
+  }
+
+  closeGestionUser(): void {
+    this.gestionUser_.next(false);
+    console.log('closeGestionUser', this.gestionUser_.value);
+  }
 
 }
