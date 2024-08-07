@@ -52,6 +52,9 @@ export class SidebarComponent implements OnInit{
 
 
   close(){
+    this.authService.closeGestionUser();
+    this.authService.closeProductos();
+    this.authService.closeSidebarVisible()
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     this.router.navigate(['home']);
