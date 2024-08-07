@@ -13,10 +13,14 @@ import { AuthService } from '../../../services/auth/auth.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
+  username: any;
   constructor(
     private router: Router, private authService: AuthService
-  ) {}
+  ) {
+
+    var user = localStorage.getItem('username');
+    this.username = user;
+  }
 
   items: MenuItem[] | undefined;
 
@@ -29,6 +33,10 @@ export class HeaderComponent {
     ];
   }
 
+  MayusLetra(name: string | null): string {
+    if (!name) return '';
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
 
   sideBar() {
     alert('sideBar');

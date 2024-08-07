@@ -38,31 +38,26 @@ export class UserService implements OnInit {
 
   getUsers(): Observable<User[]> {
     const headers = this.getHeaders();
-    console.log('headers getUsers', headers);
     return this.http.get<User[]>(this.apiGetUser, { headers });
   }
 
   getUser(username: string): Observable<User> {
     const headers = this.getHeaders();
-    console.log('headers getUser', headers);
     return this.http.get<User>(`${this.apiUrl}/${username}`, { headers });
   }
 
   createUser(user: User): Observable<User> {
     const headers = this.getHeaders();
-    console.log('headers createUser', headers);
     return this.http.post<User>(this.apiCreateUser, user, { headers });
   }
 
   updateUser(user: User): Observable<User> {
     const headers = this.getHeaders();
-    console.log('headers updateUser ', headers);
     return this.http.put<User>(this.apiPutUpdateUser, user, { headers });
   }
 
   deleteUser(username: string): Observable<void> {
     const headers = this.getHeaders();
-    console.log('headers deleteUser', headers);
     return this.http.delete<void>(`${this.apiDeleteUser}/${username}`, { headers });
   }
 }

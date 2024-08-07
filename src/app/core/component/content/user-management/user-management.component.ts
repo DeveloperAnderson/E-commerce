@@ -102,51 +102,53 @@ export class UserManagementComponent implements OnInit {
     }
 
     if (this.isCreating) {
-      var locked = this.selectedUser.locked;
-      var disabled = this.selectedUser.disabled;
-      if(locked == undefined){
-        this.selectedUser.locked = false;
-      }
-      if(disabled == undefined){
-        this.selectedUser.disabled = false;
-      }
 
-      // Asegurarse de que roles sea un array de cadenas
-      console.log('roles:', this.selectedUser.roles);
-      console.log('roles:', Array.isArray(this.selectedUser.roles));
-
-      if (!Array.isArray(this.selectedUser.roles)) {
-        this.selectedUser.roles = this.selectedUser.roles.split(',');
-        console.log('role splitaiadoos:', this.selectedUser.roles);
-      } else {
-      }
       
       console.log('Crear usuario:', this.selectedUser);
-      // Crear un nuevo usuario
-      this.userService.createUser(this.selectedUser).subscribe({
-        next: (data) => {
-          this.toastr.success('Creado con éxito');
-          this.users.push({ ...this.selectedUser }); // Agregar el nuevo usuario a la lista
-          this.visible = false; // Ocultar el diálogo
-        },
-        error: (error) => {
-          console.log('status ' ,error.status);
-          var code = error.status;
-          if(code == 403){
-            this.toastr.warning('Usted no esta permito realizar esta accion', 'Advertencia');
-          }else if(code == 500 || code == 0){
-            this.toastr.error('Error en el servidor', 'Error');
-          }
-          console.log('error ' ,error);
-          this.loadUsers();
-          this.isCreating = false;
-          this.visible = false;
-        },
-        complete() {
-          console.info('complete');
-        },
       
-      });
+      if(!this.selectedUser.username == undefined && this.selectedUser.email == undefined && this.selectedUser.locked == undefined && this.selectedUser.disabled == undefined && this.selectedUser.roles == undefined && this.selectedUser.password == undefined){
+        var locked = this.selectedUser.locked;
+        var disabled = this.selectedUser.disabled;
+        if(locked == undefined){
+          this.selectedUser.locked = false;
+        }
+        if(disabled == undefined){
+          this.selectedUser.disabled = false;
+        }
+  
+        if (!Array.isArray(this.selectedUser.roles)) {
+          this.selectedUser.roles = this.selectedUser.roles.split(',');
+          console.log('role splitaiadoos:', this.selectedUser.roles);
+        }
+        
+        // Crear un nuevo usuario
+        this.userService.createUser(this.selectedUser).subscribe({
+          next: (data) => {
+            this.toastr.success('Creado con éxito');
+            this.users.push({ ...this.selectedUser }); // Agregar el nuevo usuario a la lista
+            this.visible = false; // Ocultar el diálogo
+          },
+          error: (error) => {
+            console.log('status ' ,error.status);
+            var code = error.status;
+            if(code == 403){
+              this.toastr.warning('Usted no esta permito realizar esta accion', 'Advertencia');
+            }else if(code == 500 || code == 0){
+              this.toastr.error('Error en el servidor', 'Error');
+            }
+            console.log('error ' ,error);
+            this.loadUsers();
+            this.isCreating = false;
+            this.visible = false;
+          },
+          complete() {
+            console.info('complete');
+          },
+        
+        });
+      }else{
+        this.toastr.warning('Por favor llene todos los campos', 'Advertencia');
+      }
   
   
     }

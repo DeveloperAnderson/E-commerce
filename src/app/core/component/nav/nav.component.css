@@ -1,6 +1,6 @@
 .sidenav-container {
    height: 15%; /* Ajusta esto según sea necesario */
-   background-image: url('https://cdn.dribbble.com/userupload/5509318/file/original-9fcb4efd061af4c6eb3c0b056bda48d1.gif');
+   /* background-image: url(''); */
    background-size: 20%;  /* Ajusta el tamaño de la imagen */
    background-position: center; /* Centra la imagen verticalmente */
    background-repeat: no-repeat;

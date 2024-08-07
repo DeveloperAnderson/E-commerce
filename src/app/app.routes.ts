@@ -6,8 +6,8 @@ import { RedComponent } from './core/component/content/red/red.component';
 import { RecomendacionesComponent } from './core/component/content/recomendaciones/recomendaciones.component';
 import { UserManagementComponent } from './core/component/content/user-management/user-management.component';
 import { VacunacionComponent } from './core/component/content/vacunacion/vacunacion.component';
-import { SaludComponent } from './core/component/content/salud/salud.component';
-import { UsuarioComponent } from './core/component/content/usuario/usuario.component';
+import { ProductComponent } from './core/component/content/products/product.component';
+//import { UsuarioComponent } from './core/component/content/usuario/usuario.component';
 import { SidebarComponent } from './core/component/content/sidebar/sidebar.component';
 import { MainPageComponent } from './core/component/main-page/main-page.component'; 
 
@@ -18,13 +18,14 @@ export const routes: Routes = [
     path: 'main-page', 
     component: MainPageComponent,
     children: [
-      { path: 'gestionUsuarios', component: UserManagementComponent }
+      { path: 'gestionUsuarios', component: UserManagementComponent },
+      { path: 'product', component: ProductComponent }
     ]
   },
   { path: 'error-auth', component: MainPageComponent },
   { path: 'side-Bar', component: SidebarComponent },
-  { path: 'usuario', component: UsuarioComponent },
-  { path: 'salud', component: SaludComponent },
+  //{ path: 'usuario', component: UsuarioComponent },
+  //{ path: 'product', component: ProductComponent },
   { path: 'vacunacion', component: VacunacionComponent },
   { path: 'recomendaciones', component: RecomendacionesComponent },
   { path: 'red', component: RedComponent },

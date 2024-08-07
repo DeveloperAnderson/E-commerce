@@ -1,0 +1,69 @@
+<h6 class="font-bold  " style=" text-decoration: none;  display: flex; align-items: center; justify-content: center;  ">PRODUCTOS</h6>
+
+<!-- Gestion de Productos Crear -->
+<div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+    <p-button icon="pi pi-shopping-bag"  [formGroup]="loginForm" (onClick)="createUser()" [rounded]="true" label="Crear" severity="info" />
+</div>
+
+<div class="card xl:justify-content-center">
+    <p-orderList 
+        [value]="products" 
+        [listStyle]="{ 'max-height': '30rem' }" 
+        header="Lista de productos" 
+        filterBy="nombre,categoria" 
+        filterPlaceholder="Filter">
+        <ng-template let-product pTemplate="item">
+          <div class="flex flex-wrap p-100 align-items-center gap-8" (click)="editar(product)">
+            <div class="flex-1 flex flex-column gap-2">
+              <span class="font-bold">{{ product.nombre }}</span>
+              <div class="flex align-items-center gap-20">
+                  <i class="pi pi-tag text-sm"></i>
+                  <span>{{ product.categoria }}</span>
+              </div>
+            </div>
+              <span class="font-bold text-90">
+                {{ '$' + product.precio +' COP'}}
+              </span>
+          </div>
+        </ng-template>
+    </p-orderList>
+</div>
+
+
+
+
+<p-dialog [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+    <span class="p-text-secondary block mb-5">{{ isCreating ? 'Crear Usuario' : 'Editar Usuario' }}</span>
+    
+    <div class="flex align-items-center gap-3 mb-3">
+      <label for="nombre" class="font-semibold w-6rem">Nombre</label>
+      <input type="text" id="nombre" [(ngModel)]="selectedUser.nombre" name="nombre" class="form-control"   />      
+    </div>
+    
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="descripcion" class="font-semibold w-6rem">Descripcion</label>
+      <input type="descripcion" id="descripcion" [(ngModel)]="selectedUser.descripcion" name="descripcion" class="form-control"  />
+    </div>
+    
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="precio" class="font-semibold w-6rem">Precio</label>
+      <input type="number" id="precio" [(ngModel)]="selectedUser.precio" name="precio" class="form-control" />
+    </div>
+    
+    
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="categoria" class="font-semibold w-6rem">Categoria</label>
+      <input type="text" id="categoria" [(ngModel)]="selectedUser.categoria" name="categoria" class="form-control" />
+    </div>
+
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="cantidad" class="font-semibold w-6rem">Cantidad en <strong style="font-size: small;">(Inventario)</strong> </label>
+      <input type="number" id="cantidad" [(ngModel)]="selectedUser.cantidad" name="cantidad" class="form-control" />
+    </div>
+
+
+    <div class="flex justify-content-end gap-2">
+      <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+      <p-button label="Save" (onClick)="saveUser()" />
+    </div>
+  </p-dialog>

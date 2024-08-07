@@ -15,10 +15,8 @@ export class TokenService {
         private toastr: ToastrService,
         private router: Router
     ) {
-        console.log('TokenService');
         if (typeof localStorage !== 'undefined') {
             this.tokenKey = localStorage.getItem('token');
-            console.log('this.tokenKey', this.tokenKey);
             if (this.tokenKey) {
               this.getDecodedAccessToken(this.tokenKey);
             }else{
@@ -27,7 +25,6 @@ export class TokenService {
             }
         } else {
             this.tokenKey = null;
-            console.warn('localStorage is not available');
         }
     }
     
@@ -35,33 +32,36 @@ export class TokenService {
     getToken(): string | null {
         if (this.tokenKey) {
             this.getDecodedAccessToken(this.tokenKey);
+        }else{
+            this.logout();
         }
       return this.tokenKey;
     }
 
 
     getDecodedAccessToken(token: string): any {
-        try {
-          const currentTime = Math.floor(new Date().getTime() / 1000);
-          console.log('currentTime', currentTime);
-          const decodedToken: any = jwtDecode(token);
-          console.log('decodedToken', decodedToken);
-          if (decodedToken.exp < currentTime) {
-              this.toastr.error('El token ha expirado, por favor inicie sesión nuevamente');
-              this.logout()
-            return; // El token ha expirado
-          } else {
-            return decodedToken;
-          }
-        } catch (Error) {
-          return null;
+      try {
+        const currentTime = Math.floor(new Date().getTime() / 1000);
+        const decodedToken: any = jwtDecode(token);
+        if (decodedToken.exp < currentTime) {
+            this.toastr.error('El token ha expirado, por favor inicie sesión nuevamente');
+
+            this.logout()
+          return; // El token ha expirado
+        } else {
+          return decodedToken;
         }
+      } catch (Error) {
+        return null;
+      }
     }
     
+
+
     private logout(): void {
-        localStorage.removeItem('token');
+        localStorage.clear();
         this.toastr.error('El token ha expirado, por favor inicie sesión nuevamente');
-        this.router.navigate(['login']);
+        this.router.navigate(['home']);
     }   
     
 

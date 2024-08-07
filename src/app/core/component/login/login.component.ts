@@ -66,25 +66,20 @@ export class LoginComponent {
   }
 
   senDataAuth(): void{
-    console.log('send data');
-    console.log('this.loginForm.value',this.loginForm.value);
-    console.log('this.loginForm.value.username',this.loginForm.value.username);
     var username = this.loginForm.value.username;
     var password = this.loginForm.value.password;
 
     if(username != '' && password != ''){
-      console.log('--- get Service ---');
       this.authService.postLoginAuth(this.loginForm.value).subscribe({
 
         next: (data) => {
           console.log('data', data);
-          console.log('Username:', data.username);
-          console.log('Message:', data.message);
-          console.log('Status:', data.status);
-          console.log('JWT:', data.jwt);
           
           //Guardar el token en el localStorage  
           localStorage.setItem('token', data.jwt);
+          //Guardar el username en el localStorage
+          localStorage.setItem('username', data.username);
+
           
           this.toastr.success('Bienvenido ' + data.username);
           //rutas
@@ -92,7 +87,6 @@ export class LoginComponent {
 
         },
         error: (error) => {
-          console.log('status ' ,error.status);
           var code = error.status;
 
           if(code == 403){
@@ -100,7 +94,6 @@ export class LoginComponent {
           }else if(code == 500 || code == 0){
             this.toastr.error('Error en el servidor', 'Error');
           }
-          console.log('error ' ,error);
           
           
         },
@@ -112,13 +105,11 @@ export class LoginComponent {
       
     }else{
       this.toastr.info('Porfavor Ingrese sus Credenciales', 'Advertencia');
-      console.log('form is invalid');
     }
 
   }
 
   senDataUserRegister(): void{
-    console.log('this.loginForm.value',this.loginForm.value);
     if(this.loginForm.valid){
 
 
@@ -128,7 +119,6 @@ export class LoginComponent {
           this.toastr.success('Su cuenta ha sido creada con exito ' + data.username);
         },
         error: (error) => {
-          console.log('status ' ,error.status);
           var code = error.status;
 
           if(code == 403){
@@ -136,19 +126,16 @@ export class LoginComponent {
           }else if(code == 500 || code == 0){
             this.toastr.error('Error en el servidor', 'Error');
           }
-          console.log('error ' ,error);
           
           
         },
         complete() {
-          console.info('complete');
         },
         
       });
 
     }else{
       this.toastr.info('Porfavor Ingrese sus Credenciales', 'Advertencia');
-      console.log('form is invalid');
     }
 
   }

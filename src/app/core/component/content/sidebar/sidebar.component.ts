@@ -21,7 +21,6 @@ export class SidebarComponent implements OnInit{
     public authService: AuthService,
     private router: Router
   ) {
-    console.log('SidebarComponent');
     this.closeGestionUser();
   }
 
@@ -41,8 +40,20 @@ export class SidebarComponent implements OnInit{
   }
 
   GestionUser() {
-    console.log('GestionUser');
     this.router.navigate(['main-page', 'gestionUsuarios']);
     this.authService.openGestionUser();
+  }
+
+
+  Productos(){
+    this.router.navigate(['main-page', 'product']);
+    this.authService.openProductos();
+  }
+
+
+  close(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    this.router.navigate(['home']);
   }
 }
