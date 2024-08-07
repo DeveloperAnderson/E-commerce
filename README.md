@@ -5,23 +5,70 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Documentación de Prueba Técnica: Servicio de E-commerce
 
-## Code scaffolding
+## 1. Objetivo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El objetivo de esta prueba técnica es evaluar los conocimientos y el desempeño de los candidatos preseleccionados para el perfil de desarrollador. El desafío consiste en construir un servicio de e-commerce utilizando Spring Boot para el backend y Angular para el frontend.
 
-## Build
+## 2. Alcance
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+El servicio de e-commerce deberá permitir la gestión de los siguientes elementos:
 
-## Running unit tests
+- **Productos**
+- **Inventarios**
+- **Órdenes**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El producto mínimo viable (PMV) debe cumplir con los siguientes requisitos:
 
-## Running end-to-end tests
+### 2.1 Funcionalidades Requeridas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Autenticación y Gestión de Usuarios**
+   - Login
+   - Creación de usuario
+   - Gestión de usuarios
 
-## Further help
+2. **Operaciones CRUD**
+   - Crear, leer, actualizar y eliminar productos, inventarios y órdenes.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. **Reportes**
+   - Productos activos
+   - Top 5 de productos más vendidos
+   - Top 5 de clientes más frecuentes
+
+4. **Búsqueda de Productos**
+   - Permitir la búsqueda de productos por diferentes criterios (por ejemplo, nombre, categoría, precio).
+
+## 3. Requisitos Técnicos
+
+### 3.1 Backend
+
+- **Framework:** Spring Boot
+- **Lenguaje:** Java
+
+### 3.2 Frontend
+
+- **Framework:** Angular
+- **Lenguaje:** TypeScript
+
+## 4. Entregables
+
+1. **Código Fuente**
+   - [Repositorio del Backend (Spring Boot)](URL_DEL_REPOSITORIO_BACKEND)
+   - [Repositorio del Frontend (Angular)](URL_DEL_REPOSITORIO_FRONTEND)
+   - Instrucciones para la instalación y ejecución del proyecto.
+
+2. **Documentación Técnica**
+   - [Repositorio del Video (Explicativo)](URL_DEL_REPOSITORIO)
+
+
+## 6. Recursos
+
+- [Documentación de Spring Boot](https://spring.io/projects/spring-boot)
+- [Documentación de Angular](https://angular.io/docs)
+- [Node.js](https://nodejs.org/en/docs/)
+
+
+Para cualquier consulta adicional, por favor, póngase en contacto con [Anderson Cardozo Arrieta] a través de [+573026904599].
+
+---
