@@ -1,11 +1,10 @@
 # MiMascota
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+Este proyecto fue realizado con [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-# Documentación de Prueba Técnica: Servicio de E-commerce
+Ejecute `ng serve` para un servidor de desarrollo. Navegue hasta `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos fuente. # Documentación de Prueba Técnica: Servicio de Comercio Electrónico
 
 ## 1. Objetivo
 
@@ -37,7 +36,7 @@ El producto mínimo viable (PMV) debe cumplir con los siguientes requisitos:
    - Top 5 de clientes más frecuentes
 
 4. **Búsqueda de Productos**
-   - Permitir la búsqueda de productos por diferentes criterios (por ejemplo, nombre, categoría, precio).
+   - Permitir la búsqueda de productos por diferentes criterios
 
 ## 3. Requisitos Técnicos
 
@@ -62,11 +61,6 @@ El producto mínimo viable (PMV) debe cumplir con los siguientes requisitos:
    - [Repositorio del Video (Explicativo)](URL_DEL_REPOSITORIO)
 
 
-## 6. Recursos
-
-- [Documentación de Spring Boot](https://spring.io/projects/spring-boot)
-- [Documentación de Angular](https://angular.io/docs)
-- [Node.js](https://nodejs.org/en/docs/)
 
 
 Para cualquier consulta adicional, por favor, póngase en contacto con [Anderson Cardozo Arrieta] a través de [+573026904599].
