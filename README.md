@@ -58,7 +58,7 @@ El producto mínimo viable (PMV) debe cumplir con los siguientes requisitos:
    - Instrucciones para la instalación y ejecución del proyecto.
 
 2. **Documentación Técnica**
-   - [Repositorio del Video (Explicativo)](URL_DEL_REPOSITORIO)
+   - [Repositorio del Video (Explicativo)](https://youtu.be/vpJJVcNcaXA)
 
 
 
