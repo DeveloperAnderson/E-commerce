@@ -54,7 +54,7 @@ El producto mínimo viable (PMV) debe cumplir con los siguientes requisitos:
 
 1. **Código Fuente**
    - [Repositorio del Backend (Spring Boot)](https://github.com/DeveloperAnderson/E-commerce-Backend)
-   - [Repositorio del Frontend (Angular)](URL_DEL_REPOSITORIO_FRONTEND)
+   - [Repositorio del Frontend (Angular)](https://github.com/DeveloperAnderson/E-commerce/blob/master/README.md)
    - Instrucciones para la instalación y ejecución del proyecto.
 
 2. **Documentación Técnica**
