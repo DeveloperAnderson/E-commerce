@@ -6,6 +6,8 @@ import { DashboardComponent } from '../content/dashboard/dashboard.component';
 import { UserManagementComponent } from '../content/user-management/user-management.component';
 import { AuthService } from '../../services/auth/auth.service';
 import { ProductComponent } from '../content/products/product.component';
+import { ReportesComponent } from '../content/reportes/reportes.component';
+import { VentasOrdenesComponent } from '../content/ventasOrdenes/ventasOrdenes.component';
 
 @Component({
   selector: 'app-main-page',
@@ -16,7 +18,9 @@ import { ProductComponent } from '../content/products/product.component';
     DashboardComponent,
     CommonModule,
     UserManagementComponent,
-    ProductComponent
+    ProductComponent,
+    ReportesComponent,
+    VentasOrdenesComponent
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'

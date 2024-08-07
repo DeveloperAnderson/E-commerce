@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './core/component/login/login.component';
-import { RecomendacionesComponent } from './core/component/content/recomendaciones/recomendaciones.component';
 import { UserManagementComponent } from './core/component/content/user-management/user-management.component';
 import { ProductComponent } from './core/component/content/products/product.component';
-//import { UsuarioComponent } from './core/component/content/usuario/usuario.component';
+import { ReportesComponent } from './core/component/content/reportes/reportes.component';
 import { SidebarComponent } from './core/component/content/sidebar/sidebar.component';
 import { MainPageComponent } from './core/component/main-page/main-page.component'; 
+import { VentasOrdenesComponent } from './core/component/content/ventasOrdenes/ventasOrdenes.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/E-home', pathMatch: 'full' },
@@ -16,14 +16,15 @@ export const routes: Routes = [
     component: MainPageComponent,
     children: [
       { path: 'gestionUsuarios', component: UserManagementComponent },
-      { path: 'product', component: ProductComponent }
+      { path: 'product', component: ProductComponent },
+      { path: 'ventasOrdenes', component: VentasOrdenesComponent },
+      { path: 'reportes', component: ReportesComponent },
     ]
   },
+
   { path: 'error-auth', component: MainPageComponent },
   { path: 'side-Bar', component: SidebarComponent },
-  //{ path: 'usuario', component: UsuarioComponent },
-  //{ path: 'product', component: ProductComponent },
-  { path: 'recomendaciones', component: RecomendacionesComponent },
+  
   { path: '**', redirectTo: '/home' }
 ];
 

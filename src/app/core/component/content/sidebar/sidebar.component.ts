@@ -50,6 +50,15 @@ export class SidebarComponent implements OnInit{
     this.authService.openProductos();
   }
 
+  VentasOrdenes(){
+    this.router.navigate(['main-page', 'ventasOrdenes']);
+    this.authService.openVentasOrdenes();
+  }
+
+  Reportes(){
+    this.router.navigate(['main-page', 'reportes']);
+    this.authService.openReportes();
+  }
 
   close(){
     this.authService.closeGestionUser();

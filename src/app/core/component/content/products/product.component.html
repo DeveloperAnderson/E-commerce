@@ -42,7 +42,7 @@
     
     <div class="flex align-items-center gap-3 mb-5">
       <label for="descripcion" class="font-semibold w-6rem">Descripcion</label>
-      <input type="descripcion" id="descripcion" [(ngModel)]="selectedUser.descripcion" name="descripcion" class="form-control"  />
+      <input type="text" id="descripcion" [(ngModel)]="selectedUser.descripcion" name="descripcion" class="form-control"  />
     </div>
     
     <div class="flex align-items-center gap-3 mb-5">
@@ -50,6 +50,10 @@
       <input type="number" id="precio" [(ngModel)]="selectedUser.precio" name="precio" class="form-control" />
     </div>
     
+    <div class="flex align-items-center gap-3 mb-5">
+      <label for="activo" class="font-semibold w-6rem">Disponible</label>
+      <input type="checkbox" id="activo" [(ngModel)]="selectedUser.activo  " name="activo" class="form-check-input" />
+    </div>
     
     <div class="flex align-items-center gap-3 mb-5">
       <label for="categoria" class="font-semibold w-6rem">Categoria</label>
@@ -60,6 +64,7 @@
       <label for="cantidad" class="font-semibold w-6rem">Cantidad en <strong style="font-size: small;">(Inventario)</strong> </label>
       <input type="number" id="cantidad" [(ngModel)]="selectedUser.cantidad" name="cantidad" class="form-control" />
     </div>
+
 
 
     <div class="flex justify-content-end gap-2">

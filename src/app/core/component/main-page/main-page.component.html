@@ -8,6 +8,10 @@
     <div class="ComponetCenter">
       <app-user-management  *ngIf="authService.gestionUser$  | async "  ></app-user-management>
       <app-product *ngIf="authService.productos$ | async " ></app-product>
+
+      <app-reportes *ngIf="authService.reportes$ | async" ></app-reportes>
+
+      <app-ventasOrdenes *ngIf="authService.ventasOrdenes$ | async" ></app-ventasOrdenes>
     </div>
   
   </div>

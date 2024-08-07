@@ -35,6 +35,7 @@ export class ProductComponent {
     firstValueFrom(this.productService.getProductsSmallBackend()).then((product) => {
       this.products = product;
       this.selectedUser = this.products[0];
+      console.log('products', this.products);
     });
 
     this.loginForm = this.fb.group({
@@ -108,8 +109,19 @@ export class ProductComponent {
         this.selectedUser.disabled = false;
       }
       
+      console.log('selectedUser', this.selectedUser);
+      if(this.selectedUser.nombre == undefined || 
+        this.selectedUser.descripcion == undefined || 
+        this.selectedUser.precio == undefined || 
+        this.selectedUser.categoria == undefined || 
+        this.selectedUser.activo == undefined ||
+        this.selectedUser.cantidad == undefined){
+        
+      
+          this.toastr.warning('Porfavor llene todos los campos', 'Advertencia');
+      }else{
 
-      if(!this.selectedUser.nombre == undefined && this.selectedUser.descripcion == undefined && this.selectedUser.precio == undefined && this.selectedUser.categoria == undefined && this.selectedUser.cantidad == undefined){
+
         // Crear un nuevo usuario
 
         this.productService.postRegisterProducts(this.selectedUser).subscribe({
@@ -134,9 +146,6 @@ export class ProductComponent {
           },
         
         });
-      
-      }else{
-        this.toastr.warning('Porfavor llene todos los campos', 'Advertencia');
       }
       
   

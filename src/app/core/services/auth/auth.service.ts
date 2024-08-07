@@ -20,12 +20,17 @@ export class AuthService {
   private productos_: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public productos$ = this.productos_.asObservable();
 
+  private ventasOrdenes_: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public ventasOrdenes$ = this.ventasOrdenes_.asObservable();
+
+  private reportes_: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public reportes$ = this.reportes_.asObservable();
+
+
   constructor(private http: HttpClient, ) { }
 
   postLoginAuth(data: IAuthRequest): Observable<any> {
    return this.http.post(urlLogin, data);
-
-
   }
 
 
@@ -60,6 +65,8 @@ export class AuthService {
   openGestionUser(): void {
     this.gestionUser_.next(true);
     this.productos_.next(false);
+    this.ventasOrdenes_.next(false);
+    this.reportes_.next(false);
   }
 
   closeGestionUser(): void {
@@ -70,10 +77,37 @@ export class AuthService {
   openProductos(): void {
     this.productos_.next(true);
     this.gestionUser_.next(false);
+    this.ventasOrdenes_.next(false);
+    this.reportes_.next(false);
   }
 
   closeProductos(): void {
     this.productos_.next(false);
+  }
+
+
+
+
+  openVentasOrdenes(): void {
+    this.ventasOrdenes_.next(true);
+    this.productos_.next(false);
+    this.reportes_.next(false);
+    this.gestionUser_.next(false);
+  }
+
+  closeVentasOrdenes(): void {
+    this.ventasOrdenes_.next(false);
+  }
+
+  openReportes(): void {
+    this.reportes_.next(true);
+    this.productos_.next(false);
+    this.gestionUser_.next(false);
+    this.ventasOrdenes_.next(false);
+  }
+
+  closeReportes(): void {
+    this.reportes_.next(false);
   }
 
   

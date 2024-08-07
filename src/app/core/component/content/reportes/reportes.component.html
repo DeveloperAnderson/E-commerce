@@ -1,0 +1,59 @@
+
+<span class="font-semibold text-2xl text-primary" style="justify-content: center ; text-decoration: none;  display: flex; align-items: center; ">REPORTES</span>
+
+<h6 class="font-bold  " style=" text-decoration: none;  display: flex; align-items: center; justify-content: unset;  ">Lista de Productos Activos</h6>
+<p-table [value]="productosActivos" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Activo</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-producto>
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.activo ? 'Sí' : 'No' }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<br>
+<h6 class="font-bold  " style=" text-decoration: none;  display: flex; align-items: center; justify-content: unset;  ">Top 5 Productos Vendidos</h6>
+<p-table [value]="productosVendidos" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Activo</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-productoVen>
+        <tr>
+            <td>{{ productoVen.nombre }}</td>
+            <td>{{ productoVen.precio }}</td>
+            <td>{{ productoVen.activo ? 'Sí' : 'No' }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+<br>
+<h6 class="font-bold  " style=" text-decoration: none;  display: flex; align-items: center; justify-content: unset;  ">Clientes Frecuentes</h6>
+<p-table [value]="clientFrencuent" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombre</th>
+            <th>Producto</th>
+            <th>Cantidad de la Compra</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-client>
+        <tr>
+            <td>{{ client.nombre }}</td>
+            <td>{{ client.productNombre }}</td>
+            <td>{{ client.cantidad }}</td>
+        </tr>
+    </ng-template>
+</p-table>

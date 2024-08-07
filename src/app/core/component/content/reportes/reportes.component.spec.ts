@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AgendaComponent } from './agenda.component';
+import { AgendaComponent } from './reportes.component';
 
 describe('AgendaComponent', () => {
   let component: AgendaComponent;

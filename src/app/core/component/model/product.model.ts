@@ -6,5 +6,6 @@ export interface Product {
     price?: number;
     category?: string;
     quantity?: number;
+    activo?: boolean;
 
 }

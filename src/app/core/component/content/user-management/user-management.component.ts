@@ -106,7 +106,17 @@ export class UserManagementComponent implements OnInit {
       
       console.log('Crear usuario:', this.selectedUser);
       
-      if(!this.selectedUser.username == undefined && this.selectedUser.email == undefined && this.selectedUser.locked == undefined && this.selectedUser.disabled == undefined && this.selectedUser.roles == undefined && this.selectedUser.password == undefined){
+      if(this.selectedUser.username == undefined ||
+         this.selectedUser.email == undefined ||
+         this.selectedUser.locked == undefined||
+         this.selectedUser.disabled == undefined ||
+         this.selectedUser.roles == undefined ||
+         this.selectedUser.password == undefined){
+          this.toastr.warning('Por favor llene todos los campos', 'Advertencia');
+        
+      }else{
+
+          
         var locked = this.selectedUser.locked;
         var disabled = this.selectedUser.disabled;
         if(locked == undefined){
@@ -146,8 +156,6 @@ export class UserManagementComponent implements OnInit {
           },
         
         });
-      }else{
-        this.toastr.warning('Por favor llene todos los campos', 'Advertencia');
       }
   
   
