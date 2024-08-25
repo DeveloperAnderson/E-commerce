@@ -2,6 +2,7 @@ import { jwtDecode } from "jwt-decode";
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Injectable } from "@angular/core";
+import { timeEnd } from "console";
 
 @Injectable({
     providedIn: 'root'
@@ -45,8 +46,6 @@ export class TokenService {
         const currentTime = Math.floor(new Date().getTime() / 1000);
         const decodedToken: any = jwtDecode(token);
         if (decodedToken.exp < currentTime) {
-            this.toastr.error('El token ha expirado, por favor inicie sesión nuevamente');
-
             this.logout()
           return; // El token ha expirado
         } else {
@@ -63,8 +62,8 @@ export class TokenService {
       if (typeof localStorage !== 'undefined') {
         localStorage.clear();
       }
-        this.toastr.error('El token ha expirado, por favor inicie sesión nuevamente');
-        this.router.navigate(['home']);
+      
+      this.router.navigate(['home']);
     }   
     
 

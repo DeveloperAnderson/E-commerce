@@ -55,7 +55,15 @@ export class LoginComponent {
     private authService: AuthService, 
     private router: Router,
     private toastr: ToastrService
-  ) { }
+  ) { 
+
+    const welcomAlert = this.toastr.info( 'Bienvenido');
+    const welcomAlertId = welcomAlert.toastId;
+    console.log('welcomAlertId', welcomAlertId);
+    setTimeout(() => {
+      this.toastr.clear(welcomAlertId);
+    }, 3000); 
+  }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
