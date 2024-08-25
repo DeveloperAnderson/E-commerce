@@ -18,7 +18,7 @@ export class HeaderComponent {
     private router: Router, private authService: AuthService
   ) {
 
-    if ( typeof localStorage !== 'undefined') {
+    if ( typeof localStorage !== 'undefined' && localStorage.getItem('username') !== null) {
       // Código que usa localStorage
       var user = localStorage.getItem('username');
       this.username = user;
