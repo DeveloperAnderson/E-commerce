@@ -15,7 +15,7 @@ export class TokenService {
         private toastr: ToastrService,
         private router: Router
     ) {
-        if (typeof localStorage !== 'undefined') {
+      if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
             this.tokenKey = localStorage.getItem('token');
             if (this.tokenKey) {
               this.getDecodedAccessToken(this.tokenKey);
