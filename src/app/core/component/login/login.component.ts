@@ -57,7 +57,7 @@ export class LoginComponent {
     private toastr: ToastrService
   ) { 
 
-    const welcomAlert = this.toastr.info( 'Bienvenido');
+    const welcomAlert = this.toastr.info( 'Bienvenido Mi Pitufina te Extraño Mucho');
     const welcomAlertId = welcomAlert.toastId;
     console.log('welcomAlertId', welcomAlertId);
     setTimeout(() => {
