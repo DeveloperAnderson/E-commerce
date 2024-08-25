@@ -62,6 +62,7 @@ export class UserManagementComponent implements OnInit {
 
   saveUser(): void {
     
+    console.log('Save user:', this.isEditing);
     if(this.isEditing){
       console.log('Edit user:', this.selectedUser);
       // Actualizar usuario existente

@@ -18,8 +18,11 @@ export class HeaderComponent {
     private router: Router, private authService: AuthService
   ) {
 
-    var user = localStorage.getItem('username');
-    this.username = user;
+    if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+      // Código que usa localStorage
+      var user = localStorage.getItem('username');
+      this.username = user;
+    }
   }
 
   items: MenuItem[] | undefined;

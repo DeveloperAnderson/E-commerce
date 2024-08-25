@@ -53,6 +53,10 @@ export class UserService implements OnInit {
 
   updateUser(user: User): Observable<User> {
     const headers = this.getHeaders();
+    if (typeof user.roles === 'string') {
+      user.roles = [user.roles];
+    }
+    console.log('User', user);
     return this.http.put<User>(this.apiPutUpdateUser, user, { headers });
   }
 

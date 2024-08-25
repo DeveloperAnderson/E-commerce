@@ -75,10 +75,13 @@ export class LoginComponent {
         next: (data) => {
           console.log('data', data);
           
-          //Guardar el token en el localStorage  
-          localStorage.setItem('token', data.jwt);
-          //Guardar el username en el localStorage
-          localStorage.setItem('username', data.username);
+          if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+            // Código que usa localStorage
+            //Guardar el token en el localStorage  
+            localStorage.setItem('token', data.jwt);
+            //Guardar el username en el localStorage
+            localStorage.setItem('username', data.username);
+          }
 
           
           this.toastr.success('Bienvenido ' + data.username);
