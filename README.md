@@ -1,11 +1,10 @@
 # MiMascota
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+Este proyecto fue realizado con [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-# Documentación de Prueba Técnica: Servicio de E-commerce
+Ejecute `ng serve` para un servidor de desarrollo. Navegue hasta `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos fuente. # Documentación de Prueba Técnica: Servicio de Comercio Electrónico
 
 ## 1. Objetivo
 
@@ -37,7 +36,7 @@ El producto mínimo viable (PMV) debe cumplir con los siguientes requisitos:
    - Top 5 de clientes más frecuentes
 
 4. **Búsqueda de Productos**
-   - Permitir la búsqueda de productos por diferentes criterios (por ejemplo, nombre, categoría, precio).
+   - Permitir la búsqueda de productos por diferentes criterios
 
 ## 3. Requisitos Técnicos
 
@@ -54,19 +53,13 @@ El producto mínimo viable (PMV) debe cumplir con los siguientes requisitos:
 ## 4. Entregables
 
 1. **Código Fuente**
-   - [Repositorio del Backend (Spring Boot)](URL_DEL_REPOSITORIO_BACKEND)
-   - [Repositorio del Frontend (Angular)](URL_DEL_REPOSITORIO_FRONTEND)
-   - Instrucciones para la instalación y ejecución del proyecto.
+   - [Repositorio del Backend (Spring Boot)](https://github.com/DeveloperAnderson/E-commerce-Backend)
+   - [Repositorio del Frontend (Angular)](https://github.com/DeveloperAnderson/E-commerce/blob/master/README.md)
 
 2. **Documentación Técnica**
-   - [Repositorio del Video (Explicativo)](URL_DEL_REPOSITORIO)
+   - [Repositorio del Video (Explicativo)](https://youtu.be/vpJJVcNcaXA)
 
 
-## 6. Recursos
-
-- [Documentación de Spring Boot](https://spring.io/projects/spring-boot)
-- [Documentación de Angular](https://angular.io/docs)
-- [Node.js](https://nodejs.org/en/docs/)
 
 
 Para cualquier consulta adicional, por favor, póngase en contacto con [Anderson Cardozo Arrieta] a través de [+573026904599].
