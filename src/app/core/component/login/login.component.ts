@@ -75,7 +75,7 @@ export class LoginComponent {
         next: (data) => {
           console.log('data', data);
           
-          if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+          if (typeof localStorage !== 'undefined') {
             // Código que usa localStorage
             //Guardar el token en el localStorage  
             localStorage.setItem('token', data.jwt);

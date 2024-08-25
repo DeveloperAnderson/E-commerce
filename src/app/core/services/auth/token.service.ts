@@ -15,7 +15,8 @@ export class TokenService {
         private toastr: ToastrService,
         private router: Router
     ) {
-      if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
+
+      if ( typeof localStorage !== 'undefined') {
             this.tokenKey = localStorage.getItem('token');
             if (this.tokenKey) {
               this.getDecodedAccessToken(this.tokenKey);
@@ -28,7 +29,7 @@ export class TokenService {
         }
     }
     
-    // Si necesitas un método para acceder al token
+    //método para acceder al token
     getToken(): string | null {
         if (this.tokenKey) {
             this.getDecodedAccessToken(this.tokenKey);
@@ -59,7 +60,9 @@ export class TokenService {
 
 
     private logout(): void {
+      if (typeof localStorage !== 'undefined') {
         localStorage.clear();
+      }
         this.toastr.error('El token ha expirado, por favor inicie sesión nuevamente');
         this.router.navigate(['home']);
     }   
